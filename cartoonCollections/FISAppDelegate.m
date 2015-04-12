@@ -37,28 +37,67 @@
 
 - (NSString *)rollCallDwarves:(NSArray *)dwarves
 {
-    return nil;
+    NSMutableString *carToons = [[NSMutableString alloc] init];
+    NSUInteger i = 1;
+    
+    for (NSString *character in dwarves) {
+        [carToons appendFormat:@"%i. %@", (unsigned) i, character];
+        
+        if (i < [dwarves count]) {
+            [carToons appendFormat:@" | "];
+        }
+        i++;
+    }
+    
+    return carToons;
 }
 
 - (NSArray *)summonCaptainPlanet:(NSArray *)planteerCalls
 {
-    return nil;
+    NSMutableArray *addedHeart = [[NSMutableArray alloc] init];
+    for (NSString *elements in planteerCalls) {
+        NSString *addHeart = [elements uppercaseString];
+
+        [addedHeart addObject:[NSString stringWithFormat:@"%@!", addHeart]];
+                }
+   return addedHeart;
 }
 
 - (NSArray *)longPlaneteerCalls:(NSArray *)planteerCalls
 {
-    return nil;
+    NSMutableArray *fourletterPowers = [[NSMutableArray alloc] init];
+    for (NSString *power in planteerCalls) {
+        NSUInteger characterCount = [power length];
+        if (characterCount > 4) {
+            [fourletterPowers addObject:power];
+        } else {
+            [fourletterPowers removeObject:power];
+        }
+    }
+    return fourletterPowers;
 }
 
 - (NSString *)findTheCheese:(NSArray *)cheeses
 {
+    for (NSString *cheese in cheeses) {
+        if ([cheese isEqualToString:@"cheddar"] || [cheese isEqualToString:@"gouda"] || [cheese isEqualToString:@"cambert"] ) {
+            return cheese;
+        }
+        }
     return nil;
-}
+    }
 
 - (NSArray *)calculateDollarAmountsWithReceipt:(NSArray *)receipt
 {
-    return nil;
+    NSMutableArray *convertedreceipts = [[NSMutableArray alloc] init];
+    for (NSString *dollarAmount in receipt) {
+        NSString *dollarValue = [NSString stringWithFormat:@"$%lu", (unsigned long) [dollarAmount length]];
+        [convertedreceipts addObject:dollarValue];
+    }
+    return convertedreceipts;
 }
+
+
 
 
 
